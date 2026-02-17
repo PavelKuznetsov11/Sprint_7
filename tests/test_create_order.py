@@ -1,9 +1,9 @@
 
 import pytest
-from data import Data
 import allure
 import helpers
 from api_methods.order_methods import OrderMethods
+from data import Data
 
 class TestCreateOrder:
 
@@ -15,7 +15,7 @@ class TestCreateOrder:
         response_create_order = OrderMethods.create_order(create_order_data)
         track = response_create_order.json()
         assert 201 == response_create_order.status_code
-        assert track['track']
+        assert track[Data.track]
 
-        create_order[0] = {'track': track['track']}
+        create_order[0] = {Data.track: track[Data.track]}
 
